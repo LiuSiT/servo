@@ -30,6 +30,7 @@ RUN \
         #
         # Installing rustup and sccache (build dockerfile) or fetching build artifacts (run tasks)
         curl \
+        wget \
     && \
     # Running mach
     pip install virtualenv
