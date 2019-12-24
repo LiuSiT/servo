@@ -532,7 +532,10 @@ class MachCommands(CommandBase):
                 encoded_auth = base64.encodestring(file.read().strip()).replace('\n', '')
         failures = []
         with open(summary, "r") as file:
-            failures = [json.loads(line) for line in file]
+            for line in file:
+                line_json = json.loads(line)
+                if 'status' in line_json:
+                    failures += [line_json]
         actual_failures = []
         intermittents = []
         for failure in failures:
