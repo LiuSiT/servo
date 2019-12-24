@@ -12,8 +12,10 @@ from decisionlib import CONFIG, SHARED
 def main(task_for):
     decisionlib.Task.with_repo_bundle = lambda s, *args, **kwargs: s.with_repo(*args, *kwargs)
     commits = [
-        "dcdf910a259005bbdd993089d12f9f7eca9a26db",
-        "1a31e495a19b364d98b2eae9c2718e098bfc0bde",
+        "7474b309b45403a031c7b69c31d99f00d3bfcfb8",
+        "e5689df6b44696bf24f8757cd1f6e14d1aabf6f0",
+        "97f1300739120c3e34e7d146da47c8f84e929e2b",
+        "39963266ae842d37ceff1502a2936b4acbf9037d",
     ]
     CONFIG.initial_git_sha = CONFIG.git_sha
     # with decisionlib.make_repo_bundle():
