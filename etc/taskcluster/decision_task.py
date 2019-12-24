@@ -764,12 +764,12 @@ def wpt_chunks(platform, make_chunk_task, build_task, total_chunks, processes,
                     | cat
                 time ./mach test-wpt --release --processes $PROCESSES --timeout-multiplier=4 \
                     --headless --log-raw test-wdspec.log \
-                    --log-servojson wdspec-jsonsummary.log \
+                    --log-errorsummary wdspec-errorsummary.log \
                     --always-succeed \
                     webdriver \
                     | cat
                 ./mach filter-intermittents \
-                    wdspec-jsonsummary.log \
+                    wdspec-errorsummary.log \
                     --log-intermittents intermittents.log \
                     --log-filteredsummary filtered-wdspec-errorsummary.log \
                     --tracker-api default \
@@ -784,11 +784,11 @@ def wpt_chunks(platform, make_chunk_task, build_task, total_chunks, processes,
                     --total-chunks "$TOTAL_CHUNKS" \
                     --this-chunk "$THIS_CHUNK" \
                     --log-raw test-wpt.log \
-                    --log-servojson wpt-jsonsummary.log \
+                    --log-errorsummary wpt-errorsummary.log \
                     --always-succeed \
                     | cat
                 ./mach filter-intermittents \
-                    wpt-jsonsummary.log \
+                    wpt-errorsummary.log \
                     --log-intermittents intermittents.log \
                     --log-filteredsummary filtered-wpt-errorsummary.log \
                     --tracker-api default \
