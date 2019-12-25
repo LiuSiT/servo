@@ -890,7 +890,7 @@ def linux_build_task(name, *, build_env=build_env, install_rustc_dev=True):
     )
     if install_rustc_dev:
         # required by components/script_plugins:
-        task = task.with_script("rustup component add rustc-dev")
+        task = task.with_script("rustup component add rustc-dev || true")
     return task
 
 
